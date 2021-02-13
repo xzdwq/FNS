@@ -1,0 +1,42 @@
+.knd_0710096 .x-tab-button-center {
+  text-align: left;
+}
+.knd_0710096 .x-tab-bar-default {
+  background-color: #ffffff;
+}
+.knd_0710096 .x-tab-default {
+  border-color: #eee;
+}
+.knd_0710096 .x-tab-default-left {
+  background-color: #eee;
+}
+.knd_0710096 .x-tab-inner-default {
+  color: #8c8c8c;
+}
+.knd_0710096 .x-tab-default-left.x-tab-focus.x-tab-active {
+  box-shadow: none !important;
+}
+.knd_0710096 .x-tab.x-tab-active.x-tab-default .x-tab-inner-default {
+  color: #085994;
+}
+.knd_0710096_card {
+  border-bottom: 5px solid #add2ed;
+}
+.knd_0710096 .neutral {
+  color: #bdbdbd;
+}
+.knd_0710096 .error {
+  color: #fa9a9a
+}
+.knd_0710096 .good {
+  color: #59cb58
+}
+.knd_0710096 .x-panel-body-default {
+  border-color: #add2ed;
+}
+.knd_0710096 .x-tab-inner-default {
+  white-space: break-spaces;
+}
+.knd_0710096 .x-panel-body-default {
+  border: none;
+}
