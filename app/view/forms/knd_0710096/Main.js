@@ -5,7 +5,9 @@ Ext.define('Fns.view.forms.knd_0710096.Main', {
   header: false,
   requires: [
     'Fns.view.forms.knd_0710096.MainController',
-    'Fns.view.forms.knd_0710096.sub_forms.report_details.ReportDetails'
+    'Fns.view.forms.knd_0710096.sub_forms.ReportDetails',
+    'Fns.view.forms.knd_0710096.sub_forms.BalanceActive',
+    'Fns.view.forms.knd_0710096.sub_forms.BalancePassive'
   ],
   controller: 'knd_0710096',
   border: false,
@@ -45,16 +47,8 @@ Ext.define('Fns.view.forms.knd_0710096.Main', {
       },
       items: [
         { xtype: 'report-details' },
-        {
-          xtype: 'panel',
-          title: 'Бухгалтерский баланс. Актив',
-          html: 2
-        },
-        {
-          xtype: 'panel',
-          title: 'Бухгалтерский баланс. Пассив',
-          html: 3
-        },
+        { xtype: 'balance-active' },
+        { xtype: 'balance-passive' },
         {
           xtype: 'panel',
           title: 'Отчёт о финансовых результатах',
