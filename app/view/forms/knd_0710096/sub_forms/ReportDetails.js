@@ -2,6 +2,7 @@ Ext.define('Fns.view.forms.knd_0710096.sub_forms.ReportDetails', {
   extend: 'Ext.form.Panel',
   alias: 'widget.report-details',
   title: 'Реквизиты отчёта',
+  name: 'Документ',
   bodyPadding: 5,
   scrollable: true,
   items: [

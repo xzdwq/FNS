@@ -7,7 +7,11 @@ Ext.define('Fns.view.forms.knd_0710096.Main', {
     'Fns.view.forms.knd_0710096.MainController',
     'Fns.view.forms.knd_0710096.sub_forms.ReportDetails',
     'Fns.view.forms.knd_0710096.sub_forms.BalanceActive',
-    'Fns.view.forms.knd_0710096.sub_forms.BalancePassive'
+    'Fns.view.forms.knd_0710096.sub_forms.BalancePassive',
+    'Fns.view.forms.knd_0710096.sub_forms.IncomeStatement',
+    'Fns.view.forms.knd_0710096.sub_forms.UseReport',
+    'Fns.view.forms.knd_0710096.sub_forms.CapitalMovement',
+    'Fns.view.forms.knd_0710096.sub_forms.CapitalAdjustment'
   ],
   controller: 'knd_0710096',
   border: false,
@@ -49,26 +53,10 @@ Ext.define('Fns.view.forms.knd_0710096.Main', {
         { xtype: 'report-details' },
         { xtype: 'balance-active' },
         { xtype: 'balance-passive' },
-        {
-          xtype: 'panel',
-          title: 'Отчёт о финансовых результатах',
-          html: 4
-        },
-        {
-          xtype: 'panel',
-          title: 'Отчёт о целевом использовании средств',
-          html: 5
-        },
-        {
-          xtype: 'panel',
-          title: 'Отчёт об изменениях капитала. Движение капитала',
-          html: 6
-        },
-        {
-          xtype: 'panel',
-          title: 'Отчет об изменениях капитала. Корректировка в связи с изменением учетной политики и исправлением ошибок',
-          html: 7
-        },
+        { xtype: 'income-statement' },
+        { xtype: 'use-report' },
+        { xtype: 'capital-movement' },
+        { xtype: 'capital-adjustment' },
         {
           xtype: 'panel',
           title: 'Отчет об изменениях капитала. Чистые активы',

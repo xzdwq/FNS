@@ -1,14 +1,14 @@
-Ext.define('Fns.view.forms.knd_0710096.sub_forms.BalancePassive', {
+Ext.define('Fns.view.forms.knd_0710096.sub_forms.UseReport', {
   extend: 'Ext.form.Panel',
-  alias: 'widget.balance-passive',
-  title: 'Бухгалтерский баланс. Пассив',
-  name: 'Баланс',
+  alias: 'widget.use-report',
+  title: 'Отчет о целевом использовании средств',
+  name: 'ЦелИсп',
   bodyPadding: 5,
   scrollable: true,
   items: [
     // {
     //   xtype: 'image',
-    //   src: 'resources/img/0710096_5.03000_03_2.png',
+    //   src: 'resources/img/0710096_5.03000_03_4.png',
     //   width: 120
     // },
     {
@@ -92,7 +92,7 @@ Ext.define('Fns.view.forms.knd_0710096.sub_forms.BalancePassive', {
               },
               items: [
                 {
-                  text: 'На отчетную дату отчетного периода (графа 4)',
+                  text: 'За отчетный год (графа 3)',
                 }
               ]
             },
@@ -108,23 +108,7 @@ Ext.define('Fns.view.forms.knd_0710096.sub_forms.BalancePassive', {
               },
               items: [
                 {
-                  text: 'На 31 декабря предыдущего года (графа 5)',
-                }
-              ]
-            },
-            {
-              flex: .4,
-              defaults: {
-                xtype: 'label',
-                hideLabel: true,
-                width: '100%',
-                style:{
-                  'text-align': 'center'
-                }
-              },
-              items: [
-                {
-                  text: 'На 31 декабря года, предшествующего предыдущему (графа 6)',
+                  text: 'За предыдущий год (графа 4)',
                 }
               ]
             }
@@ -159,8 +143,9 @@ Ext.define('Fns.view.forms.knd_0710096.sub_forms.BalancePassive', {
               },
               items: [
                 {
-                  text: 'Капитал и резервы*',
-                  name: 'КапРез'
+                  text: 'Остаток средств на начало отчетного года',
+                  cls: 'label-bold',
+                  name: 'ОстатНачОтч'
                 }
               ]
             },
@@ -176,7 +161,7 @@ Ext.define('Fns.view.forms.knd_0710096.sub_forms.BalancePassive', {
               },
               items: [
                 {
-                  text: '1300',
+                  text: '6100',
                 }
               ]
             },
@@ -185,7 +170,11 @@ Ext.define('Fns.view.forms.knd_0710096.sub_forms.BalancePassive', {
               defaults: {
                 xtype: 'textfield',
                 hideLabel: true,
-                width: '100%'
+                width: '100%',
+                allowBlank: false,
+                allowOnlyWhitespace: false,
+                blankText: 'Обязательно для заполнения',
+                msgTarget: 'side'
               },
               items: [
                 {
@@ -198,7 +187,11 @@ Ext.define('Fns.view.forms.knd_0710096.sub_forms.BalancePassive', {
               defaults: {
                 xtype: 'textfield',
                 hideLabel: true,
-                width: '100%'
+                width: '100%',
+                allowBlank: false,
+                allowOnlyWhitespace: false,
+                blankText: 'Обязательно для заполнения',
+                msgTarget: 'side'
               },
               items: [
                 {
@@ -211,24 +204,15 @@ Ext.define('Fns.view.forms.knd_0710096.sub_forms.BalancePassive', {
               defaults: {
                 xtype: 'textfield',
                 hideLabel: true,
-                width: '100%'
+                width: '100%',
+                allowBlank: false,
+                allowOnlyWhitespace: false,
+                blankText: 'Обязательно для заполнения',
+                msgTarget: 'side'
               },
               items: [
                 {
-                  name: 'СумПрдщ',
-                }
-              ]
-            },
-            {
-              flex: .4,
-              defaults: {
-                xtype: 'textfield',
-                hideLabel: true,
-                width: '100%'
-              },
-              items: [
-                {
-                  name: 'СумПрдшв',
+                  name: 'СумПред',
                 }
               ]
             }
@@ -263,8 +247,9 @@ Ext.define('Fns.view.forms.knd_0710096.sub_forms.BalancePassive', {
               },
               items: [
                 {
-                  text: 'Целевые средства (заполняется некоммерческими организациями)',
-                  name: 'ЦелевСредства'
+                  text: 'Поступило средств',
+                  cls: 'label-bold',
+                  name: 'ВсегоПоступило'
                 }
               ]
             },
@@ -280,7 +265,7 @@ Ext.define('Fns.view.forms.knd_0710096.sub_forms.BalancePassive', {
               },
               items: [
                 {
-                  text: '1350',
+                  text: '6200',
                 }
               ]
             },
@@ -331,144 +316,7 @@ Ext.define('Fns.view.forms.knd_0710096.sub_forms.BalancePassive', {
               },
               items: [
                 {
-                  name: 'СумПрдщ',
-                }
-              ]
-            },
-            {
-              flex: .4,
-              defaults: {
-                xtype: 'textfield',
-                hideLabel: true,
-                width: '100%',
-                allowBlank: false,
-                allowOnlyWhitespace: false,
-                blankText: 'Обязательно для заполнения',
-                msgTarget: 'side'
-              },
-              items: [
-                {
-                  name: 'СумПрдшв',
-                }
-              ]
-            }
-          ]
-        },
-        {
-          xtype: 'panel',
-          layout: 'hbox',
-          width: '100%',
-          defaults: {
-            xtype: 'panel',
-            layout: {
-              type: 'vbox',
-              pack: 'center'
-            },
-            height: 60,
-            padding: '0 2 0 2',
-            style: {
-              border: '1px solid #ccc'
-            }
-          },
-          items: [
-            {
-              flex: 1,
-              defaults: {
-                xtype: 'label',
-                hideLabel: true,
-                width: '100%',
-                style:{
-                  'text-align': 'left'
-                }
-              },
-              items: [
-                {
-                  text: 'Фонд недвижимого и особо ценного движимого имущества и иные целевые фонды (заполняется некоммерческими организациями)',
-                  name: 'ФондИмущИнЦФ'
-                }
-              ]
-            },
-            {
-              flex: .2,
-              defaults: {
-                xtype: 'label',
-                hideLabel: true,
-                width: '100%',
-                style:{
-                  'text-align': 'center'
-                }
-              },
-              items: [
-                {
-                  text: '1360',
-                }
-              ]
-            },
-            {
-              flex: .4,
-              defaults: {
-                xtype: 'textfield',
-                hideLabel: true,
-                width: '100%',
-                allowBlank: false,
-                allowOnlyWhitespace: false,
-                blankText: 'Обязательно для заполнения',
-                msgTarget: 'side'
-              },
-              items: [
-                {
-                  name: 'Пояснения',
-                }
-              ]
-            },
-            {
-              flex: .4,
-              defaults: {
-                xtype: 'textfield',
-                hideLabel: true,
-                width: '100%',
-                allowBlank: false,
-                allowOnlyWhitespace: false,
-                blankText: 'Обязательно для заполнения',
-                msgTarget: 'side'
-              },
-              items: [
-                {
-                  name: 'СумОтч',
-                }
-              ]
-            },
-            {
-              flex: .4,
-              defaults: {
-                xtype: 'textfield',
-                hideLabel: true,
-                width: '100%',
-                allowBlank: false,
-                allowOnlyWhitespace: false,
-                blankText: 'Обязательно для заполнения',
-                msgTarget: 'side'
-              },
-              items: [
-                {
-                  name: 'СумПрдщ',
-                }
-              ]
-            },
-            {
-              flex: .4,
-              defaults: {
-                xtype: 'textfield',
-                hideLabel: true,
-                width: '100%',
-                allowBlank: false,
-                allowOnlyWhitespace: false,
-                blankText: 'Обязательно для заполнения',
-                msgTarget: 'side'
-              },
-              items: [
-                {
-                  name: 'СумПрдшв',
+                  name: 'СумПред',
                 }
               ]
             }
@@ -503,8 +351,8 @@ Ext.define('Fns.view.forms.knd_0710096.sub_forms.BalancePassive', {
               },
               items: [
                 {
-                  text: 'Долгосрочные заемные средства',
-                  name: 'ДлгЗаемСредств'
+                  text: 'Взносы и иные целевые поступления',
+                  name: 'ВзносЦелПоступ'
                 }
               ]
             },
@@ -520,7 +368,7 @@ Ext.define('Fns.view.forms.knd_0710096.sub_forms.BalancePassive', {
               },
               items: [
                 {
-                  text: '1410',
+                  text: '6220',
                 }
               ]
             },
@@ -571,24 +419,7 @@ Ext.define('Fns.view.forms.knd_0710096.sub_forms.BalancePassive', {
               },
               items: [
                 {
-                  name: 'СумПрдщ',
-                }
-              ]
-            },
-            {
-              flex: .4,
-              defaults: {
-                xtype: 'textfield',
-                hideLabel: true,
-                width: '100%',
-                allowBlank: false,
-                allowOnlyWhitespace: false,
-                blankText: 'Обязательно для заполнения',
-                msgTarget: 'side'
-              },
-              items: [
-                {
-                  name: 'СумПрдшв',
+                  name: 'СумПред',
                 }
               ]
             }
@@ -623,8 +454,8 @@ Ext.define('Fns.view.forms.knd_0710096.sub_forms.BalancePassive', {
               },
               items: [
                 {
-                  text: 'Другие долгосрочные обязательства',
-                  name: 'ДрДолгосрОбяз'
+                  text: 'Прибыль от приносящей доход деятельности организации',
+                  name: 'ПрибПредДеят'
                 }
               ]
             },
@@ -640,7 +471,7 @@ Ext.define('Fns.view.forms.knd_0710096.sub_forms.BalancePassive', {
               },
               items: [
                 {
-                  text: '1450',
+                  text: '6240',
                 }
               ]
             },
@@ -691,24 +522,7 @@ Ext.define('Fns.view.forms.knd_0710096.sub_forms.BalancePassive', {
               },
               items: [
                 {
-                  name: 'СумПрдщ',
-                }
-              ]
-            },
-            {
-              flex: .4,
-              defaults: {
-                xtype: 'textfield',
-                hideLabel: true,
-                width: '100%',
-                allowBlank: false,
-                allowOnlyWhitespace: false,
-                blankText: 'Обязательно для заполнения',
-                msgTarget: 'side'
-              },
-              items: [
-                {
-                  name: 'СумПрдшв',
+                  name: 'СумПред',
                 }
               ]
             }
@@ -743,8 +557,8 @@ Ext.define('Fns.view.forms.knd_0710096.sub_forms.BalancePassive', {
               },
               items: [
                 {
-                  text: 'Краткосрочные заемные средства',
-                  name: 'КртЗаемСредств'
+                  text: 'Прочие поступления',
+                  name: 'Прочие'
                 }
               ]
             },
@@ -760,7 +574,7 @@ Ext.define('Fns.view.forms.knd_0710096.sub_forms.BalancePassive', {
               },
               items: [
                 {
-                  text: '1510',
+                  text: '6250',
                 }
               ]
             },
@@ -811,24 +625,7 @@ Ext.define('Fns.view.forms.knd_0710096.sub_forms.BalancePassive', {
               },
               items: [
                 {
-                  name: 'СумПрдщ',
-                }
-              ]
-            },
-            {
-              flex: .4,
-              defaults: {
-                xtype: 'textfield',
-                hideLabel: true,
-                width: '100%',
-                allowBlank: false,
-                allowOnlyWhitespace: false,
-                blankText: 'Обязательно для заполнения',
-                msgTarget: 'side'
-              },
-              items: [
-                {
-                  name: 'СумПрдшв',
+                  name: 'СумПред',
                 }
               ]
             }
@@ -863,8 +660,9 @@ Ext.define('Fns.view.forms.knd_0710096.sub_forms.BalancePassive', {
               },
               items: [
                 {
-                  text: 'Кредиторская задолженность',
-                  name: 'КредитЗадолж'
+                  text: 'Использовано средств',
+                  cls: 'label-bold',
+                  name: 'ВсегоИспользовано'
                 }
               ]
             },
@@ -880,7 +678,7 @@ Ext.define('Fns.view.forms.knd_0710096.sub_forms.BalancePassive', {
               },
               items: [
                 {
-                  text: '1520',
+                  text: '6300',
                 }
               ]
             },
@@ -931,24 +729,7 @@ Ext.define('Fns.view.forms.knd_0710096.sub_forms.BalancePassive', {
               },
               items: [
                 {
-                  name: 'СумПрдщ',
-                }
-              ]
-            },
-            {
-              flex: .4,
-              defaults: {
-                xtype: 'textfield',
-                hideLabel: true,
-                width: '100%',
-                allowBlank: false,
-                allowOnlyWhitespace: false,
-                blankText: 'Обязательно для заполнения',
-                msgTarget: 'side'
-              },
-              items: [
-                {
-                  name: 'СумПрдшв',
+                  name: 'СумПред',
                 }
               ]
             }
@@ -983,8 +764,8 @@ Ext.define('Fns.view.forms.knd_0710096.sub_forms.BalancePassive', {
               },
               items: [
                 {
-                  text: 'Другие краткосрочные обязательства',
-                  name: 'ДрКраткосрОбяз'
+                  text: 'На целевые мероприятия',
+                  name: 'ЦелМер'
                 }
               ]
             },
@@ -1000,7 +781,7 @@ Ext.define('Fns.view.forms.knd_0710096.sub_forms.BalancePassive', {
               },
               items: [
                 {
-                  text: '1550',
+                  text: '6310',
                 }
               ]
             },
@@ -1051,29 +832,12 @@ Ext.define('Fns.view.forms.knd_0710096.sub_forms.BalancePassive', {
               },
               items: [
                 {
-                  name: 'СумПрдщ',
-                }
-              ]
-            },
-            {
-              flex: .4,
-              defaults: {
-                xtype: 'textfield',
-                hideLabel: true,
-                width: '100%',
-                allowBlank: false,
-                allowOnlyWhitespace: false,
-                blankText: 'Обязательно для заполнения',
-                msgTarget: 'side'
-              },
-              items: [
-                {
-                  name: 'СумПрдшв',
+                  name: 'СумПред',
                 }
               ]
             }
           ]
-        },,
+        },
         {
           xtype: 'panel',
           layout: 'hbox',
@@ -1103,8 +867,8 @@ Ext.define('Fns.view.forms.knd_0710096.sub_forms.BalancePassive', {
               },
               items: [
                 {
-                  text: 'БАЛАНС',
-                  name: 'Баланс'
+                  text: 'На содержание организации',
+                  name: 'СодеожОрг'
                 }
               ]
             },
@@ -1120,7 +884,7 @@ Ext.define('Fns.view.forms.knd_0710096.sub_forms.BalancePassive', {
               },
               items: [
                 {
-                  text: '1700',
+                  text: '6320',
                 }
               ]
             },
@@ -1129,7 +893,11 @@ Ext.define('Fns.view.forms.knd_0710096.sub_forms.BalancePassive', {
               defaults: {
                 xtype: 'textfield',
                 hideLabel: true,
-                width: '100%'
+                width: '100%',
+                allowBlank: false,
+                allowOnlyWhitespace: false,
+                blankText: 'Обязательно для заполнения',
+                msgTarget: 'side'
               },
               items: [
                 {
@@ -1142,7 +910,11 @@ Ext.define('Fns.view.forms.knd_0710096.sub_forms.BalancePassive', {
               defaults: {
                 xtype: 'textfield',
                 hideLabel: true,
-                width: '100%'
+                width: '100%',
+                allowBlank: false,
+                allowOnlyWhitespace: false,
+                blankText: 'Обязательно для заполнения',
+                msgTarget: 'side'
               },
               items: [
                 {
@@ -1155,11 +927,67 @@ Ext.define('Fns.view.forms.knd_0710096.sub_forms.BalancePassive', {
               defaults: {
                 xtype: 'textfield',
                 hideLabel: true,
-                width: '100%'
+                width: '100%',
+                allowBlank: false,
+                allowOnlyWhitespace: false,
+                blankText: 'Обязательно для заполнения',
+                msgTarget: 'side'
               },
               items: [
                 {
-                  name: 'СумПрдщ',
+                  name: 'СумПред',
+                }
+              ]
+            }
+          ]
+        },
+        {
+          xtype: 'panel',
+          layout: 'hbox',
+          width: '100%',
+          defaults: {
+            xtype: 'panel',
+            layout: {
+              type: 'vbox',
+              pack: 'center'
+            },
+            height: 40,
+            padding: '0 2 0 2',
+            style: {
+              border: '1px solid #ccc'
+            }
+          },
+          items: [
+            {
+              flex: 1,
+              defaults: {
+                xtype: 'label',
+                hideLabel: true,
+                width: '100%',
+                style:{
+                  'text-align': 'left'
+                }
+              },
+              items: [
+                {
+                  text: 'На приобретение основных средств и иного имущества',
+                  name: 'ПриобОСИн'
+                }
+              ]
+            },
+            {
+              flex: .2,
+              defaults: {
+                xtype: 'label',
+                hideLabel: true,
+                width: '100%',
+                style:{
+                  'text-align': 'center'
+                }
+              },
+              items: [
+                {
+                  text: '6330',
                 }
               ]
             },
@@ -1168,16 +996,261 @@ Ext.define('Fns.view.forms.knd_0710096.sub_forms.BalancePassive', {
               defaults: {
                 xtype: 'textfield',
                 hideLabel: true,
-                width: '100%'
+                width: '100%',
+                allowBlank: false,
+                allowOnlyWhitespace: false,
+                blankText: 'Обязательно для заполнения',
+                msgTarget: 'side'
               },
               items: [
                 {
-                  name: 'СумПрдшв',
+                  name: 'Пояснения',
+                }
+              ]
+            },
+            {
+              flex: .4,
+              defaults: {
+                xtype: 'textfield',
+                hideLabel: true,
+                width: '100%',
+                allowBlank: false,
+                allowOnlyWhitespace: false,
+                blankText: 'Обязательно для заполнения',
+                msgTarget: 'side'
+              },
+              items: [
+                {
+                  name: 'СумОтч',
+                }
+              ]
+            },
+            {
+              flex: .4,
+              defaults: {
+                xtype: 'textfield',
+                hideLabel: true,
+                width: '100%',
+                allowBlank: false,
+                allowOnlyWhitespace: false,
+                blankText: 'Обязательно для заполнения',
+                msgTarget: 'side'
+              },
+              items: [
+                {
+                  name: 'СумПред',
                 }
               ]
             }
           ]
-        }
+        },
+        {
+          xtype: 'panel',
+          layout: 'hbox',
+          width: '100%',
+          defaults: {
+            xtype: 'panel',
+            layout: {
+              type: 'vbox',
+              pack: 'center'
+            },
+            height: 40,
+            padding: '0 2 0 2',
+            style: {
+              border: '1px solid #ccc'
+            }
+          },
+          items: [
+            {
+              flex: 1,
+              defaults: {
+                xtype: 'label',
+                hideLabel: true,
+                width: '100%',
+                style:{
+                  'text-align': 'left'
+                }
+              },
+              items: [
+                {
+                  text: 'Прочие',
+                  name: 'Прочие2'
+                }
+              ]
+            },
+            {
+              flex: .2,
+              defaults: {
+                xtype: 'label',
+                hideLabel: true,
+                width: '100%',
+                style:{
+                  'text-align': 'center'
+                }
+              },
+              items: [
+                {
+                  text: '6350',
+                }
+              ]
+            },
+            {
+              flex: .4,
+              defaults: {
+                xtype: 'textfield',
+                hideLabel: true,
+                width: '100%',
+                allowBlank: false,
+                allowOnlyWhitespace: false,
+                blankText: 'Обязательно для заполнения',
+                msgTarget: 'side'
+              },
+              items: [
+                {
+                  name: 'Пояснения',
+                }
+              ]
+            },
+            {
+              flex: .4,
+              defaults: {
+                xtype: 'textfield',
+                hideLabel: true,
+                width: '100%',
+                allowBlank: false,
+                allowOnlyWhitespace: false,
+                blankText: 'Обязательно для заполнения',
+                msgTarget: 'side'
+              },
+              items: [
+                {
+                  name: 'СумОтч',
+                }
+              ]
+            },
+            {
+              flex: .4,
+              defaults: {
+                xtype: 'textfield',
+                hideLabel: true,
+                width: '100%',
+                allowBlank: false,
+                allowOnlyWhitespace: false,
+                blankText: 'Обязательно для заполнения',
+                msgTarget: 'side'
+              },
+              items: [
+                {
+                  name: 'СумПред',
+                }
+              ]
+            }
+          ]
+        },
+        {
+          xtype: 'panel',
+          layout: 'hbox',
+          width: '100%',
+          defaults: {
+            xtype: 'panel',
+            layout: {
+              type: 'vbox',
+              pack: 'center'
+            },
+            height: 40,
+            padding: '0 2 0 2',
+            style: {
+              border: '1px solid #ccc'
+            }
+          },
+          items: [
+            {
+              flex: 1,
+              defaults: {
+                xtype: 'label',
+                hideLabel: true,
+                width: '100%',
+                style:{
+                  'text-align': 'left'
+                }
+              },
+              items: [
+                {
+                  text: 'Остаток средств на конец отчетного года',
+                  cls: 'label-bold',
+                  name: 'ОстатКонОтч'
+                }
+              ]
+            },
+            {
+              flex: .2,
+              defaults: {
+                xtype: 'label',
+                hideLabel: true,
+                width: '100%',
+                style:{
+                  'text-align': 'center'
+                }
+              },
+              items: [
+                {
+                  text: '6400',
+                }
+              ]
+            },
+            {
+              flex: .4,
+              defaults: {
+                xtype: 'textfield',
+                hideLabel: true,
+                width: '100%',
+                allowBlank: false,
+                allowOnlyWhitespace: false,
+                blankText: 'Обязательно для заполнения',
+                msgTarget: 'side'
+              },
+              items: [
+                {
+                  name: 'Пояснения',
+                }
+              ]
+            },
+            {
+              flex: .4,
+              defaults: {
+                xtype: 'textfield',
+                hideLabel: true,
+                width: '100%',
+                allowBlank: false,
+                allowOnlyWhitespace: false,
+                blankText: 'Обязательно для заполнения',
+                msgTarget: 'side'
+              },
+              items: [
+                {
+                  name: 'СумОтч',
+                }
+              ]
+            },
+            {
+              flex: .4,
+              defaults: {
+                xtype: 'textfield',
+                hideLabel: true,
+                width: '100%',
+                allowBlank: false,
+                allowOnlyWhitespace: false,
+                blankText: 'Обязательно для заполнения',
+                msgTarget: 'side'
+              },
+              items: [
+                {
+                  name: 'СумПред',
+                }
+              ]
+            }
+          ]
+        },
       ]
     }
   ]

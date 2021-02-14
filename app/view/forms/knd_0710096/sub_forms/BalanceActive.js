@@ -2,14 +2,15 @@ Ext.define('Fns.view.forms.knd_0710096.sub_forms.BalanceActive', {
   extend: 'Ext.form.Panel',
   alias: 'widget.balance-active',
   title: 'Бухгалтерский баланс. Актив',
+  name: 'Баланс',
   bodyPadding: 5,
   scrollable: true,
   items: [
-    {
-      xtype: 'image',
-      src: 'resources/img/0710096_5.03000_03_2.png',
-      width: 120
-    },
+    // {
+    //   xtype: 'image',
+    //   src: 'resources/img/0710096_5.03000_03_2.png',
+    //   width: 120
+    // },
     {
       xtype: 'panel',
       layout: 'vbox',
@@ -25,7 +26,7 @@ Ext.define('Fns.view.forms.knd_0710096.sub_forms.BalanceActive', {
               pack: 'center'
             },
             height: 100,
-            padding: '5',
+            padding: '0 2 0 2',
             style: {
               border: '1px solid #ccc'
             }
@@ -139,8 +140,8 @@ Ext.define('Fns.view.forms.knd_0710096.sub_forms.BalanceActive', {
               type: 'vbox',
               pack: 'center'
             },
-            height: 50,
-            padding: '5',
+            height: 40,
+            padding: '0 2 0 2',
             style: {
               border: '1px solid #ccc'
             }
@@ -259,8 +260,8 @@ Ext.define('Fns.view.forms.knd_0710096.sub_forms.BalanceActive', {
               type: 'vbox',
               pack: 'center'
             },
-            height: 50,
-            padding: '5',
+            height: 40,
+            padding: '0 2 0 2',
             style: {
               border: '1px solid #ccc'
             }
@@ -379,8 +380,8 @@ Ext.define('Fns.view.forms.knd_0710096.sub_forms.BalanceActive', {
               type: 'vbox',
               pack: 'center'
             },
-            height: 50,
-            padding: '5',
+            height: 40,
+            padding: '0 2 0 2',
             style: {
               border: '1px solid #ccc'
             }
@@ -499,8 +500,8 @@ Ext.define('Fns.view.forms.knd_0710096.sub_forms.BalanceActive', {
               type: 'vbox',
               pack: 'center'
             },
-            height: 50,
-            padding: '5',
+            height: 40,
+            padding: '0 2 0 2',
             style: {
               border: '1px solid #ccc'
             }
@@ -619,8 +620,8 @@ Ext.define('Fns.view.forms.knd_0710096.sub_forms.BalanceActive', {
               type: 'vbox',
               pack: 'center'
             },
-            height: 50,
-            padding: '5',
+            height: 40,
+            padding: '0 2 0 2',
             style: {
               border: '1px solid #ccc'
             }
@@ -739,8 +740,8 @@ Ext.define('Fns.view.forms.knd_0710096.sub_forms.BalanceActive', {
               type: 'vbox',
               pack: 'center'
             },
-            height: 50,
-            padding: '5',
+            height: 40,
+            padding: '0 2 0 2',
             style: {
               border: '1px solid #ccc'
             }
