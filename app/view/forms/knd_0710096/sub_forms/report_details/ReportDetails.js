@@ -55,15 +55,5 @@ Ext.define('Fns.view.forms.knd_0710096.sub_forms.report_details.ReportDetails', 
       },
       html: 'Форма по КНД 0710096'
     }
-  ],
-  buttons: [
-    {
-      text: 'OK',
-      handler: function (el) {
-        let form = el.up('form').getForm();
-        form.isValid();
-        console.log(form.isValid());
-      }
-    }
   ]
 });

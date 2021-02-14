@@ -102,6 +102,7 @@ Ext.define('Fns.view.forms.knd_0710096.Main', {
           },
           {
             xtype: 'progressbar',
+            itemId: 'progress',
             flex: 1,
             value: 0
           },

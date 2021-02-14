@@ -7,9 +7,15 @@ Ext.define('Fns.view.forms.knd_0710096.MainController', {
         afterrender: this.onStepBar
       },
       '#knd_0710096': {
-        tabchange: this.onTabChange
+        beforerender: this.onBeforeRenderTab,
+        tabchange: this.onTabChange,
+        beforetabchange: this.onBeforeTabChange
       }
     })
+  },
+  onBeforeRenderTab: function(el) {
+    let totalCard = el.items.items.length;
+    el.totalCard = totalCard;
   },
   onStepBar: function() {
     let next = Ext.ComponentQuery.query('#next')[0];
@@ -27,7 +33,23 @@ Ext.define('Fns.view.forms.knd_0710096.MainController', {
     else if(el.itemId == 'prev') {
       baseLayout.getPrev() ? baseLayout.prev() : null;
     }
-    this.hasErrors(el.itemId, knd_0710096.down('form'))
+  },
+  onBeforeTabChange: function(knd_0710096, newTab, oldTab) {
+    let coef = 100 / knd_0710096.totalCard;
+    oldTab.progress = 0;
+    let activeTab = knd_0710096.getActiveTab();
+    let activeTabIndex = knd_0710096.items.indexOf(activeTab);
+    let form = knd_0710096.items.items[activeTabIndex];
+    try {
+      if(form.getForm().isValid()) {
+        oldTab.setIconCls('good fa fa-circle');
+        oldTab.progress = coef;
+      } else {
+        oldTab.setIconCls('error fa fa-circle');
+        oldTab.progress = 0;
+      }
+    } catch(e) {}
+    this.onSetProgress(knd_0710096);
   },
   onTabChange: function() {
     this.onDisabledBtn();
@@ -42,30 +64,15 @@ Ext.define('Fns.view.forms.knd_0710096.MainController', {
     prev.setDisabled(activeTabIndex == 0);
     next.setDisabled((activeTabIndex+1) == totalCard);
   },
-  hasErrors: function(btn, form) {
-    let knd_0710096 = form.up('tabpanel');
-    let activeTab = knd_0710096.getActiveTab();
-    let activeTabIndex = knd_0710096.items.indexOf(activeTab);
-    // console.log(form.getForm().isValid());
-    if(btn == 'prev') {
-      let next_form = knd_0710096.items.items[activeTabIndex+1];
-      try {
-        if(next_form.getForm().isValid()) {
-          next_form.setIconCls('good fa fa-circle');
-        } else {
-          next_form.setIconCls('error fa fa-circle');
-        }
-      } catch(e) {}
+  onSetProgress: function(knd_0710096) {
+    let progressBar = Ext.ComponentQuery.query('#progress')[0];
+    let progress = 0;
+    let card = knd_0710096.items.items;
+    for(let i = 0; i < card.length; i++) {
+      card[i].progress ? progress += card[i].progress : progress += 0;
     }
-    if(btn == 'next') {
-      let prev_form = knd_0710096.items.items[activeTabIndex-1];
-      try {
-        if(prev_form.getForm().isValid()) {
-          prev_form.setIconCls('good fa fa-circle');
-        } else {
-          prev_form.setIconCls('error fa fa-circle');
-        }
-      } catch(e) {}
-    }
+    progressBar.setValue(progress / 100);
+  },
+  hasErrors: function(form) {
   }
 });
